@@ -1,0 +1,120 @@
+/* ===== CONTENEDOR ===== */
+.admin-image-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-image-input-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4A4A4A;
+}
+
+/* ===== ZONA DE SUBIDA ===== */
+.admin-image-dropzone {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-image-file-label {
+  cursor: pointer;
+  display: block;
+}
+
+/* Oculta el input nativo del navegador */
+.admin-image-file-hidden {
+  display: none;
+}
+
+/* Zona visual clickeable */
+.admin-image-dropzone-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 24px 16px;
+  border: 2px dashed #D1D1D1;
+  border-radius: 14px;
+  background: #f5f9ff;
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  text-align: center;
+}
+
+.admin-image-file-label:hover .admin-image-dropzone-inner {
+  border-color: #C4161C;
+  background: #fff5f5;
+  box-shadow: 0 0 14px rgba(196,22,28,0.12);
+}
+
+.admin-image-dropzone-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.admin-image-dropzone-text {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #4A4A4A;
+}
+
+.admin-image-dropzone-hint {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+.admin-image-error {
+  font-size: 0.82rem;
+  color: #C4161C;
+  padding-left: 4px;
+}
+
+/* ===== PREVIEW COMPACTO ===== */
+.admin-image-preview-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: #f5fff8;
+  border: 1px solid #b9ecd2;
+  border-radius: 12px;
+}
+
+.admin-image-preview {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #E0E0E0;
+  flex-shrink: 0;
+}
+
+.admin-image-preview-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-image-preview-ok {
+  font-size: 0.82rem;
+  color: #15803d;
+  font-weight: 600;
+}
+
+.admin-image-remove {
+  border: none;
+  background: transparent;
+  color: #C4161C;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  font-family: inherit;
+}
+
+.admin-image-remove:hover {
+  text-decoration: underline;
+}

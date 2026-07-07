@@ -1,0 +1,218 @@
+/* ═══════════════════════════════════════════════
+   ADMIN — tablas de productos, artesanos, categorías
+   ═══════════════════════════════════════════════ */
+
+/* ── Contenedor de página ── */
+.admin-productos {
+  padding: 32px 36px 60px;
+}
+
+/* ── Header de página ── */
+.admin-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 28px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.admin-page-header h1 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1A1A1A;
+}
+
+.admin-page-header p {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ── Botones principales ── */
+.admin-btn-primary {
+  padding: 11px 22px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00A854, #00c96a);
+  color: white;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 0 14px rgba(0,168,84,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.admin-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(0,168,84,0.5);
+}
+
+.admin-btn-secondary {
+  padding: 11px 22px;
+  border: 1.5px solid #D1D1D1;
+  border-radius: 30px;
+  background: transparent;
+  color: #4A4A4A;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+
+.admin-btn-secondary:hover {
+  background: #f0f0f0;
+}
+
+/* ── Wrapper de tabla ── */
+.admin-table-wrapper {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+/* ── Tabla ── */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.admin-table thead tr {
+  background: #f7fafc;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.admin-table th {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.admin-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.15s;
+}
+
+.admin-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+  background: #fafcff;
+}
+
+.admin-table td {
+  padding: 12px 18px;
+  color: #1A1A1A;
+  vertical-align: middle;
+}
+
+/* ── Imagen en tabla ──
+   object-fit: contain — imagen completa sin recorte */
+.admin-table-img {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: contain;      /* imagen completa, sin recorte */
+  background: #f5f5f5;      /* fondo neutro */
+  border: 1px solid #E0E0E0;
+  padding: 3px;             /* pequeño respiro */
+  display: block;
+}
+
+/* Variante redonda para fotos de artesanos */
+.admin-table-img--round {
+  border-radius: 50%;
+  object-fit: cover;        /* la foto de persona sí usa cover */
+  padding: 0;
+}
+
+.admin-table-title {
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.admin-table-price {
+  font-weight: 700;
+  color: #FFC400;
+}
+
+/* ── Badge de categoría ── */
+.admin-table-badge {
+  display: inline-block;
+  background: #FFF3CC;
+  color: #8a6800;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+/* ── Acciones ── */
+.admin-table-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.admin-action-btn {
+  padding: 7px 14px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: opacity 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin-action-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.admin-action-edit   { background: #1E73BE; color: white; }
+.admin-action-delete { background: #C4161C; color: white; }
+
+/* ── Estados ── */
+.admin-loading {
+  padding: 40px;
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.admin-empty {
+  padding: 40px;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* ── Imagen de categoría en tabla (fondo) ── */
+.admin-table-img.bg-preview {
+  object-fit: cover;
+  border-radius: 10px;
+  padding: 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .admin-productos { padding: 20px; }
+  .admin-table th,
+  .admin-table td  { padding: 10px 12px; }
+}

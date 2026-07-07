@@ -1,0 +1,358 @@
+/* ═══════════════════════════════════════════════
+   PRODUCT DETAIL — layout compacto
+   ═══════════════════════════════════════════════ */
+
+.pd-page {
+  min-height: 100vh;
+}
+
+/* ── Sección con fondo parallax ── */
+.pd-wrapper {
+  min-height: 100vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.pd-overlay {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.50) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Contenido principal ──
+   Dos columnas: info izquierda, galería derecha
+   padding-top: 90px deja espacio para el navbar (70px) + respiro */
+.pd-content {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 420px 1fr;  /* izquierda fija, derecha flexible */
+  align-items: start;                /* altura natural, sin estiramiento */
+  min-height: 100vh;
+  padding: 90px 50px 50px;
+  gap: 40px;
+}
+
+/* ── Panel izquierdo — descripción con vidrio difuminado ── */
+.pd-left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(0,0,0,0.48);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 22px;
+  padding: 24px 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.pd-category {
+  background: #FFC400;
+  color: #111;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 5px 13px;
+  border-radius: 20px;
+  width: fit-content;
+  letter-spacing: 0.4px;
+}
+
+.pd-title {
+  font-size: 1.9rem;       /* ← más pequeño que antes (era 2.4rem) */
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.pd-price {
+  font-size: 1.5rem;       /* ← reducido (era 1.8rem) */
+  font-weight: 800;
+  color: #FFC400;
+}
+
+.pd-description {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.85rem;      /* ← más compacto */
+  line-height: 1.75;
+  text-align: justify;
+}
+
+/* Características */
+.pd-caracteristicas {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.pd-carac-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #FFC400;
+  margin-bottom: 10px;
+  letter-spacing: 0.3px;
+}
+
+.pd-carac-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pd-carac-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.pd-carac-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.pd-carac-label {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.78rem;
+  min-width: 100px;
+}
+
+.pd-carac-value {
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* ── Panel derecho — galería + chip artesano ── */
+.pd-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  /* La altura de la galería se limita para que todo quepa en pantalla */
+  max-height: calc(100vh - 120px);
+}
+
+/* ── Chip del artesano — siempre abajo a la derecha ── */
+.pd-artesano-chip {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.pd-artesano-chip:hover .pd-artesano-name {
+  border-color: rgba(255,196,0,0.6);
+  box-shadow: -4px 0 18px rgba(255,196,0,0.35);
+}
+
+.pd-artesano-name {
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 14px 7px 16px;
+  border-radius: 30px 0 0 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-right: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.pd-artesano-avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: contain;      /* imagen completa sin recorte */
+  background: #f5f5f5;      /* fondo neutro */
+  border: 2px solid rgba(255,196,0,0.6);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  transition: border 0.3s, box-shadow 0.3s, transform 0.25s;
+  position: relative;
+  z-index: 1;
+}
+
+.pd-artesano-chip:hover .pd-artesano-avatar {
+  border: 2.5px solid #FFC400;
+  box-shadow: 0 0 0 3px rgba(255,196,0,0.25), 0 0 20px rgba(255,196,0,0.5);
+  transform: scale(1.06);
+}
+
+/* ── Botón flotante WhatsApp ── */
+.pd-whatsapp-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px 12px 16px;
+  border-radius: 50px;
+  box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.pd-whatsapp-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.6);
+}
+
+.pd-whatsapp-icon { width: 20px; height: 20px; flex-shrink: 0; }
+
+.pd-whatsapp-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+}
+
+/* ── Botón volver ── */
+.pd-back {
+  position: fixed;
+  top: 78px;
+  left: 50px;
+  z-index: 10;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: background 0.25s;
+  font-family: inherit;
+}
+
+.pd-back:hover { background: rgba(255,255,255,0.28); }
+
+/* ── Sección otros productos ── */
+.pd-otros {
+  background: linear-gradient(to bottom, #EDFBFF 0%, #ffffff 18%, #ffffff 100%);
+  padding: 70px 60px;
+  position: relative;
+  z-index: 10;
+}
+
+.pd-otros-header { margin-bottom: 36px; }
+
+.pd-otros-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #FFC400;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.pd-otros-header h2 {
+  font-size: 1.8rem;
+  color: #1A1A1A;
+  font-weight: 700;
+}
+
+.pd-otros-nombre { color: #C4161C; }
+
+.pd-otros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.pd-otros-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #E0E0E0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+
+.pd-otros-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+.pd-otros-img-wrap {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+}
+
+.pd-otros-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+
+.pd-otros-card:hover .pd-otros-img-wrap img { transform: scale(1.06); }
+
+.pd-otros-badge {
+  position: absolute;
+  top: 8px; left: 8px;
+  background: #FFC400;
+  color: #111;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 18px;
+}
+
+.pd-otros-info {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pd-otros-info h4 { font-size: 0.88rem; color: #1A1A1A; font-weight: 600; }
+.pd-otros-info span { font-size: 0.9rem; font-weight: 800; color: #FFC400; }
+
+.pd-notfound {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #333;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .pd-content {
+    grid-template-columns: 1fr;
+    padding: 90px 30px 50px;
+    gap: 28px;
+  }
+  .pd-right { max-height: none; }
+  .pd-title { font-size: 1.6rem; }
+  .pd-otros { padding: 60px 30px; }
+}
+
+@media (max-width: 768px) {
+  .pd-content { padding: 85px 18px 40px; }
+  .pd-title { font-size: 1.4rem; }
+  .pd-back { left: 18px; }
+  .pd-otros { padding: 48px 18px; }
+  .pd-otros-grid { grid-template-columns: repeat(2, 1fr); }
+}

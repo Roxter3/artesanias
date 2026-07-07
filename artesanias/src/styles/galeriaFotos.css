@@ -1,0 +1,117 @@
+/* ===== CONTENEDOR ===== */
+.galeria-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===== GRID DE FOTOS EXISTENTES ===== */
+.galeria-admin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 8px;
+}
+
+.galeria-admin-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  border: 1px solid #E0E0E0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.galeria-admin-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.galeria-admin-remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(196,22,28,0.85);
+  border: none;
+  color: white;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+
+.galeria-admin-remove:hover {
+  background: #C4161C;
+  transform: scale(1.1);
+}
+
+/* ===== ZONA DE DRAG & DROP ===== */
+.galeria-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 20px 16px;
+  border: 2px dashed #D1D1D1;
+  border-radius: 14px;
+  background: #f5f9ff;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+}
+
+.galeria-dropzone:hover {
+  border-color: #C4161C;
+  background: #fff5f5;
+  box-shadow: 0 0 14px rgba(196,22,28,0.12);
+}
+
+/* Estado cuando hay algo arrastrándose encima */
+.galeria-dropzone--over {
+  border-color: #00A854;
+  background: #f0fff6;
+  box-shadow: 0 0 18px rgba(0,168,84,0.25);
+  transform: scale(1.01);
+}
+
+/* Estado cargando */
+.galeria-dropzone--loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.galeria-dropzone-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.galeria-dropzone-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4A4A4A;
+}
+
+.galeria-dropzone-hint {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+/* ===== ESTADOS ===== */
+.galeria-admin-error {
+  font-size: 0.8rem;
+  color: #C4161C;
+}
+
+.galeria-admin-hint {
+  font-size: 0.75rem;
+  color: #999;
+}

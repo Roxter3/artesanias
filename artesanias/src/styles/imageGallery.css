@@ -1,0 +1,175 @@
+/* ═══════════════════════════════════════════════════════
+   GALERÍA — imagen principal izquierda, miniaturas derecha
+   ═══════════════════════════════════════════════════════ */
+
+.igallery {
+  display: flex;
+  flex-direction: row-reverse; /* miniaturas DERECHA, imagen IZQUIERDA */
+  gap: 8px;
+  align-items: stretch;
+  width: 100%;
+  /* Altura adaptable: en detalle producto toma el alto del panel,
+     en detalle artesano toma su tamaño natural */
+  height: 420px;
+  max-height: 560px;
+}
+
+/* ── Columna de miniaturas (derecha) ──
+   4 miniaturas que suman exactamente el alto de la imagen principal.
+   Fórmula: si el alto total es H y hay 3 gaps de 6px:
+   cada miniatura = (H - 3*6) / 4
+   → con max-height 560px: (560 - 18) / 4 ≈ 135px cada una
+   Usamos flex con flex: 1 para que se repartan el espacio automáticamente */
+.igallery-thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;             /* ← separación entre miniaturas */
+  flex-shrink: 0;
+  width: 90px;          /* ← ancho de la columna de miniaturas */
+  overflow: hidden;     /* sin scroll — máximo 4 fotos */
+}
+
+.igallery-thumb {
+  flex: 1;              /* cada miniatura ocupa 1/4 del alto disponible */
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2.5px solid transparent;
+  padding: 0;
+  background: rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+  min-height: 0;        /* necesario para que flex: 1 funcione bien en columna */
+}
+
+.igallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* imagen completa sin recorte */
+  display: block;
+  background: rgba(255,255,255,0.05);
+  padding: 2px;
+}
+
+.igallery-thumb:hover {
+  border-color: #FFC400;
+  transform: scale(1.03);
+}
+
+.igallery-thumb--active {
+  border-color: #FFC400;
+  box-shadow: 0 0 10px rgba(255,196,0,0.5);
+}
+
+/* ── Imagen principal (izquierda) ── */
+.igallery-main {
+  position: relative;
+  flex: 1;
+  border-radius: 14px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.igallery-zoom-wrap {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: crosshair;
+  position: relative;
+  background: rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sin recorte — imagen completa centrada */
+.igallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* imagen completa, sin recorte */
+  display: block;
+  transition: transform 0.1s ease;
+}
+
+/* ── Flechas sobresalidas — centradas verticalmente ──
+   Sobresalen del borde de la imagen para que se vean bien */
+.igallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.92);
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+  transition: background 0.2s, transform 0.2s;
+  z-index: 2;
+  line-height: 1;
+}
+
+.igallery-arrow:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* Las flechas sobresalen ligeramente del borde de la imagen */
+.igallery-arrow--prev { left: -10px; }
+.igallery-arrow--next { right: -10px; }
+
+/* Contador — abajo al centro */
+.igallery-counter {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.55);
+  color: white;
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 14px;
+  backdrop-filter: blur(4px);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .igallery {
+    height: 400px;
+    max-height: 400px;
+  }
+
+  .igallery-thumbs { width: 70px; }
+}
+
+@media (max-width: 768px) {
+  .igallery {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+  }
+
+  .igallery-thumbs {
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .igallery-thumb {
+    flex: 0 0 60px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .igallery-main { height: 260px; }
+
+  .igallery-arrow--prev { left: 6px; }
+  .igallery-arrow--next { right: 6px; }
+}

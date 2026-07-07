@@ -1,0 +1,35 @@
+/* ================================
+   FUENTE PERSONALIZADA
+================================ */
+@font-face {
+  font-family: "BreePeru";
+  src: url("../fonts/BreePeru-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "BreePeru", sans-serif;
+}
+
+body {
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: "BreePeru", sans-serif;
+}
+
+input, select, textarea {
+  font-family: "BreePeru", sans-serif;
+}

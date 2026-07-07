@@ -1,0 +1,83 @@
+.cat-select {
+  position: relative;
+  min-width: 240px;
+}
+
+/* Botón principal */
+.cat-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-radius: 18px;
+  border: 1.5px solid #D1D1D1;
+  background: #f5f9ff;
+  color: #555;
+  font-size: 0.95rem;
+  cursor: pointer;
+  outline: none;
+  transition: border 0.25s, box-shadow 0.25s;
+  user-select: none;
+}
+
+.cat-trigger:hover {
+  border-color: #FFC400;
+  box-shadow: 0 0 16px rgba(255,196,0,0.3);
+}
+
+.cat-trigger--open {
+  border-color: #FFC400;
+  box-shadow:
+    0 0 22px rgba(255,196,0,0.55),
+    0 0 8px  rgba(255,196,0,0.3);
+}
+
+.cat-trigger-label {
+  color: #4A4A4A;
+  font-size: 0.92rem;
+}
+
+.cat-arrow {
+  display: inline-block;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* Dropdown */
+.cat-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 1.5px solid #FFC400;
+  border-radius: 16px;
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.1),
+    0 0 18px rgba(255,196,0,0.2);
+  list-style: none;
+  padding: 8px;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.cat-option {
+  padding: 12px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #4A4A4A;
+  font-size: 0.92rem;
+  transition: background 0.18s, color 0.18s;
+}
+
+.cat-option:hover {
+  background: #FFF8E1;
+  color: #111;
+}
+
+.cat-option--active {
+  background: #FFF3CC;
+  color: #111;
+  font-weight: 600;
+}

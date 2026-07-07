@@ -1,0 +1,298 @@
+/* ═══════════════════════════════════════════════
+   ARTISAN DETAIL — perfil completo del artesano
+   ═══════════════════════════════════════════════ */
+
+.ad-page {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* ── Botón volver ── */
+.ad-back {
+  position: fixed;
+  top: 80px;
+  left: 40px;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid #E0E0E0;
+  color: #4A4A4A;
+  padding: 8px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: background 0.2s, transform 0.2s;
+  font-family: inherit;
+}
+
+.ad-back:hover {
+  background: #ffffff;
+  transform: translateX(-3px);
+}
+
+/* ── Hero — galería izquierda, info derecha ── */
+.ad-hero {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 50px;
+  padding: 100px 60px 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* ── Columna izquierda — galería ── */
+.ad-foto-wrap {
+  position: sticky;
+  top: 90px; /* se queda fija al hacer scroll */
+}
+
+/* ── Columna derecha — información ── */
+.ad-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ad-especialidad {
+  display: inline-block;
+  background: #FFC400;
+  color: #111;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.ad-nombre {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  line-height: 1.1;
+}
+
+.ad-rna {
+  font-size: 0.82rem;
+  color: #888;
+}
+
+.ad-rna strong {
+  color: #4A4A4A;
+  font-weight: 700;
+}
+
+.ad-descripcion {
+  font-size: 0.92rem;
+  color: #555;
+  line-height: 1.8;
+  text-align: justify;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-left: 3px solid #FFC400;
+  border-radius: 0 12px 12px 0;
+}
+
+/* ── Panel de contacto ── */
+.ad-contacto {
+  background: #ffffff;
+  border: 1px solid #EBEBEB;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.ad-contacto-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.ad-contacto-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.ad-contacto-label {
+  font-size: 0.8rem;
+  color: #888;
+  min-width: 80px;
+  font-weight: 600;
+}
+
+.ad-contacto-valor {
+  font-size: 0.88rem;
+  color: #1A1A1A;
+  font-weight: 500;
+}
+
+/* ── Redes sociales ── */
+.ad-redes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ad-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.ad-red:hover { transform: translateY(-2px); opacity: 0.9; }
+.ad-red.facebook  { background: #1877f2; }
+.ad-red.instagram { background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af); }
+.ad-red.tiktok    { background: #010101; }
+.ad-red.whatsapp  { background: #25D366; }
+
+/* Solo ícono — sin texto, botón cuadrado/redondo */
+.ad-red--icon-only {
+  padding: 9px;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  justify-content: center;
+}
+
+/* ── Sección productos del artesano ── */
+.ad-productos {
+  background: linear-gradient(to bottom, #f8fafc 0%, #ffffff 100%);
+  padding: 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.ad-productos-header {
+  margin-bottom: 32px;
+}
+
+.ad-productos-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #FFC400;
+  letter-spacing: 2px;
+  display: block;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.ad-productos-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1A1A1A;
+}
+
+.ad-productos-nombre { color: #C4161C; }
+
+.ad-productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Card de producto dentro del perfil del artesano */
+.ad-prod-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ad-prod-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+}
+
+.ad-prod-img-wrap {
+  position: relative;
+  height: 150px;
+  overflow: hidden;
+  background: #f8f8f8;
+}
+
+.ad-prod-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  transition: transform 0.4s;
+}
+
+.ad-prod-card:hover .ad-prod-img-wrap img { transform: scale(1.04); }
+
+.ad-prod-badge {
+  position: absolute;
+  top: 8px; left: 8px;
+  background: #FFC400;
+  color: #111;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 16px;
+}
+
+.ad-prod-info {
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ad-prod-info h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.ad-prod-info span {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #FFC400;
+}
+
+/* Not found */
+.ad-notfound {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: #333;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .ad-hero {
+    grid-template-columns: 1fr;
+    padding: 90px 30px 50px;
+    gap: 32px;
+  }
+  .ad-foto-wrap { position: static; }
+  .ad-nombre { font-size: 2rem; }
+  .ad-productos { padding: 50px 30px; }
+}
+
+@media (max-width: 768px) {
+  .ad-hero { padding: 85px 20px 40px; }
+  .ad-nombre { font-size: 1.7rem; }
+  .ad-back { left: 16px; }
+  .ad-productos { padding: 40px 20px; }
+}

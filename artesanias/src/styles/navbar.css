@@ -1,0 +1,163 @@
+/* ═══════════════════════════════════════════════════
+   NAVBAR
+   ═══════════════════════════════════════════════════ */
+
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  background: rgba(237, 251, 255, 0.88);
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+}
+
+/* ── Logo ── */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+/* Cambia solo este valor para ajustar el tamaño del logo */
+.navbar-logo {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  max-height: 100%;
+}
+
+/* ── Contenedor de links + indicador ── */
+.nav-links-wrapper {
+  position: relative;    /* el indicador se posiciona relativo a este */
+  display: flex;
+  align-items: center;
+}
+
+/* ── Lista de links ── */
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0 2px;        /* pequeño padding para que el indicador no se corte */
+}
+
+.nav-links li {
+  position: relative;
+  cursor: pointer;
+  padding-bottom: 8px;   /* espacio para el indicador debajo */
+  user-select: none;
+}
+
+.nav-links li span {
+  color: #4A4A4A;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.25s;
+  white-space: nowrap;
+}
+
+.nav-links li:hover span {
+  color: #1A1A1A;
+}
+
+.nav-links li.active span {
+  color: #1A1A1A;
+  font-weight: 700;
+}
+
+/* ── Indicador animado ──
+   Se posiciona al fondo del nav-links-wrapper
+   y se mueve con Framer Motion vía left + width  */
+.nav-indicator {
+  position: absolute;
+  bottom: -2px;          /* justo debajo del texto */
+  height: 2.5px;
+  border-radius: 2px;
+  background: #FFC400;   /* ← color del indicador — cambia aquí */
+  pointer-events: none;
+}
+
+/* ── Lado derecho (hamburguesa) ── */
+.nav-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  width: 26px;
+  height: 2.5px;
+  background: #4A4A4A;
+  border-radius: 10px;
+  transition: background 0.25s;
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE — móvil
+   ══════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 0 24px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* En móvil el wrapper no necesita position relative
+     porque el menú desplegable se posiciona diferente */
+  .nav-links-wrapper {
+    position: static;
+  }
+
+  .nav-links {
+    position: fixed;        /* fixed en vez de absolute para que se vea bien */
+    top: 70px;
+    right: -260px;
+    flex-direction: column;
+    width: 220px;
+    padding: 24px 20px;
+    border-radius: 0 0 0 20px;
+    background: rgba(237,251,255,0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: right 0.35s ease;
+    gap: 16px;
+    box-shadow: -4px 4px 24px rgba(0,0,0,0.12);
+    z-index: 999;
+  }
+
+  .nav-links.active-menu {
+    right: 0;
+  }
+
+  /* Oculta el indicador en móvil — no aplica en columna */
+  .nav-indicator {
+    display: none;
+  }
+
+  .nav-links li {
+    padding-bottom: 0;
+  }
+}

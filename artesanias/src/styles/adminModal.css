@@ -1,0 +1,251 @@
+/* ===== OVERLAY ===== */
+.admin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ===== MODAL ===== */
+.admin-modal {
+  background: #ffffff;
+  border-radius: 24px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+}
+
+.admin-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  border-bottom: 1px solid #E0E0E0;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  z-index: 2;
+}
+
+.admin-modal-header h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1A1A1A;
+}
+
+.admin-modal-close {
+  background: #f0f0f0;
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #4A4A4A;
+  transition: background 0.2s;
+}
+
+.admin-modal-close:hover {
+  background: #e0e0e0;
+}
+
+/* ===== FORMULARIO ===== */
+.admin-modal-form {
+  padding: 24px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.admin-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4A4A4A;
+}
+
+.admin-form-group input,
+.admin-form-group select,
+.admin-form-group textarea {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #D1D1D1;
+  background: #f5f9ff;
+  font-size: 0.9rem;
+  color: #1A1A1A;
+  outline: none;
+  font-family: inherit;
+  transition: border 0.25s, box-shadow 0.25s;
+}
+
+.admin-form-group input:hover,
+.admin-form-group select:hover,
+.admin-form-group textarea:hover {
+  border-color: #C4161C;
+  box-shadow: 0 0 12px rgba(196,22,28,0.15);
+}
+
+.admin-form-group input:focus,
+.admin-form-group select:focus,
+.admin-form-group textarea:focus {
+  border-color: #C4161C;
+  box-shadow: 0 0 16px rgba(196,22,28,0.25);
+}
+
+.admin-form-group textarea {
+  resize: vertical;
+}
+
+/* Input deshabilitado */
+.admin-form-group input:disabled {
+  background: #f0f0f0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.admin-form-subtitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFC400;
+  margin-top: 4px;
+}
+
+/* ===== VALIDACIÓN ===== */
+.admin-input-error {
+  border-color: #C4161C !important;
+  box-shadow: 0 0 12px rgba(196,22,28,0.25) !important;
+}
+
+.admin-error-text {
+  color: #C4161C;
+  font-size: 0.78rem;
+  margin-top: 2px;
+}
+
+/* ===== TEXTO DE AYUDA ===== */
+.admin-field-hint {
+  font-size: 0.78rem;
+  color: #999;
+  margin-top: -2px;
+}
+
+/* ===== INPUT CON PREFIJO (ej. +51 para celular) ===== */
+.admin-input-prefix-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #D1D1D1;
+  border-radius: 12px;
+  background: #f5f9ff;
+  overflow: hidden;
+  transition: border 0.25s, box-shadow 0.25s;
+}
+
+.admin-input-prefix-wrapper:focus-within {
+  border-color: #C4161C;
+  box-shadow: 0 0 16px rgba(196,22,28,0.22);
+}
+
+.admin-input-prefix {
+  padding: 12px 10px 12px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #888;
+  border-right: 1.5px solid #D1D1D1;
+  background: #eef3ff;
+  user-select: none;
+}
+
+.admin-input-with-prefix {
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  flex: 1;
+}
+
+/* ===== BOTONES ===== */
+.admin-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.admin-btn-primary {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #00A854, #00c96a);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 0 16px rgba(0,168,84,0.35);
+  transition: transform 0.25s, box-shadow 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(0,168,84,0.5);
+}
+
+.admin-btn-secondary {
+  padding: 12px 24px;
+  border: 1.5px solid #C4161C;
+  border-radius: 30px;
+  background: transparent;
+  color: #C4161C;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s, color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Al pasar el mouse — rojo completo, letras blancas */
+.admin-btn-secondary:hover {
+  background: #cf2228;
+  color: rgb(255, 255, 255);
+}
+
+/* Al hacer clic — mismo efecto */
+.admin-btn-secondary:active {
+  background: #a01015;
+  color: rgb(249, 5, 5);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .admin-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-modal {
+    max-height: 95vh;
+  }
+}

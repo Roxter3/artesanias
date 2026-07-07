@@ -1,0 +1,226 @@
+.hero {
+  height: calc(100vh - 70px); /* pantalla completa menos el navbar */
+  position: relative;
+  overflow: hidden;
+  color: white;
+  background: #EDFBFF;
+}
+
+.hero-bg-fixed {
+  display: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 70px;
+  gap: 40px;
+}
+
+/* IZQUIERDA */
+.hero-left {
+  flex: 1;
+  max-width: 480px;
+  z-index: 2;
+}
+
+.circle-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  font-size: 1.3rem;
+  transition: background 0.6s ease;
+}
+
+.hero-left h1 {
+  font-size: 4.2rem;
+  line-height: 0.95;
+  font-weight: 800;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  color: #1A1A1A;
+}
+
+.line {
+  width: 45px;
+  height: 3px;
+  background: #C4161C;
+  margin-bottom: 22px;
+}
+
+.hero-left p {
+  color: rgba(0,0,0,0.6);
+  line-height: 1.8;
+  letter-spacing: 1px;
+  margin-bottom: 36px;
+  font-size: 0.85rem;
+}
+
+/* DERECHA */
+.hero-right {
+  flex: 1.3;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-top: 20px; /* espacio extra para que la imagen no choque arriba */
+}
+
+.carousel-frame {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  height: 62vh;       /* reducido de 72vh — más espacio arriba */
+  max-height: 480px;  /* límite para pantallas grandes */
+}
+
+.carousel-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.18));
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.4;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.carousel-dot.dot-active {
+  opacity: 1;
+  transform: scale(1.35);
+}
+
+.hero-label {
+  position: absolute;
+  bottom: 40px;
+  right: 0;
+  color: rgba(0,0,0,0.4);
+  font-size: 0.8rem;
+  line-height: 1.9;
+  text-align: right;
+  border-left: 2px solid rgba(0,0,0,0.15);
+  padding-left: 12px;
+}
+
+/* Palabras en línea horizontal */
+.hero-words {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: nowrap;
+  margin-bottom: 36px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.hero-word {
+  display: inline;
+}
+
+.word-sep {
+  color: #cccccc;
+  margin: 0 6px;
+}
+
+/* Botón explorar */
+.explore-btn {
+  background: linear-gradient(135deg, #00A854, #00c96a);
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  padding: 14px 28px;
+  border-radius: 50px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow:
+    0 0 18px rgba(0,168,84,0.45),
+    0 4px 14px rgba(0,168,84,0.3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: inherit;
+}
+
+.explore-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 0 30px rgba(0,168,84,0.65),
+    0 8px 24px rgba(0,168,84,0.4);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .hero-content {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 40px 60px;
+    gap: 30px;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .circle-icon {
+    margin: 0 auto 24px auto;
+  }
+
+  .line {
+    margin: 0 auto 22px auto;
+  }
+
+  .hero-left h1 {
+    font-size: 3.2rem;
+  }
+
+  .carousel-frame {
+    height: 40vh;
+    max-width: 100%;
+  }
+
+  .hero-label {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 90px 25px 60px;
+  }
+
+  .hero-left h1 {
+    font-size: 2.5rem;
+  }
+
+  .carousel-frame {
+    height: 30vh;
+  }
+}
