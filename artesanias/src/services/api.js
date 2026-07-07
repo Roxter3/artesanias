@@ -8,7 +8,7 @@
 
 export const USE_MOCK_DATA = false;
 
-export const BASE_URL = "http://localhost/descubre-ate-backend";
+export const BASE_URL = "https://descubre-ate-backend.onrender.com";
 
 export function getAuthHeaders() {
   const token = sessionStorage.getItem("admin_token");
